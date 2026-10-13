@@ -1,0 +1,66 @@
+{
+  "chain_valid": true,
+  "total_events": 6,
+  "events": [
+    {
+      "index": 6,
+      "type": "RECEIPT_VERIFIED",
+      "incident_id": "INC-20260101-0001",
+      "timestamp": "2026-01-01 14:32:15 UTC",
+      "summary": "Receipt RCPT-0001 signature and canonical SHA-256 digest verified (4/4 checks).",
+      "actor": "LeakLens Evidence Verifier",
+      "prev_hash": "b892a01d51c338421bb8f2e1a4918e9c40df1712a4501a8831c902a14f903d12",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "index": 5,
+      "type": "RECEIPT_CREATED",
+      "incident_id": "INC-20260101-0001",
+      "timestamp": "2026-01-01 14:32:12 UTC",
+      "summary": "Signed receipt RCPT-0001 created in LOCAL FALLBACK mode (ed25519:9f4b...38e1).",
+      "actor": "CooL Signer (Local Fallback)",
+      "prev_hash": "91c49ab72810a0e5b72e18501fceb20584b1a418902ff17720a8bc192041f009",
+      "hash": "b892a01d51c338421bb8f2e1a4918e9c40df1712a4501a8831c902a14f903d12"
+    },
+    {
+      "index": 4,
+      "type": "RESCAN_COMPLETED",
+      "incident_id": "INC-20260101-0001",
+      "timestamp": "2026-01-01 14:32:10 UTC",
+      "summary": "Post-redaction verification scan completed: 8/8 targeted values removed, risk reduced 92 -> 18 (REVIEW).",
+      "actor": "Gitleaks + Presidio Verifier",
+      "prev_hash": "5a7700de1f740a83e60c8789bc44d015c9284201889c023309ab12809911ef41",
+      "hash": "91c49ab72810a0e5b72e18501fceb20584b1a418902ff17720a8bc192041f009"
+    },
+    {
+      "index": 3,
+      "type": "REDACTION_APPLIED",
+      "incident_id": "INC-20260101-0001",
+      "timestamp": "2026-01-01 14:32:08 UTC",
+      "summary": "Rust SafePatch applied 8 byte-range redactions (0 rejected) on demo_secret_and_pii.env.",
+      "actor": "Rust SafePatch v0.4.1",
+      "prev_hash": "32df00e1ba499a071f6540c9bc353805df620581400a127741a9c0029184bc88",
+      "hash": "5a7700de1f740a83e60c8789bc44d015c9284201889c023309ab12809911ef41"
+    },
+    {
+      "index": 2,
+      "type": "POLICY_DECIDED",
+      "incident_id": "INC-20260101-0001",
+      "timestamp": "2026-01-01 14:32:05 UTC",
+      "summary": "Policy leaklens-policy-v1.0 evaluated initial verdict BLOCK (risk 92); rules R1, R4, R9 fired.",
+      "actor": "Policy Engine v1.0",
+      "prev_hash": "11a8b9409fec00281b376d8b9415c4897e9301298418045582910abc99102f14",
+      "hash": "32df00e1ba499a071f6540c9bc353805df620581400a127741a9c0029184bc88"
+    },
+    {
+      "index": 1,
+      "type": "SCAN_COMPLETED",
+      "incident_id": "INC-20260101-0001",
+      "timestamp": "2026-01-01 14:32:01 UTC",
+      "summary": "Initial scan of demo_secret_and_pii.env completed: 3 secrets (Gitleaks) and 5 PII items (Presidio) detected.",
+      "actor": "Gitleaks v8.18.2 + Presidio v2.2.33",
+      "prev_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "hash": "11a8b9409fec00281b376d8b9415c4897e9301298418045582910abc99102f14"
+    }
+  ]
+}

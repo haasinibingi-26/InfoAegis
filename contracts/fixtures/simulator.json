@@ -1,0 +1,81 @@
+{
+  "incident_id": "INC-20260101-0001",
+  "file_name": "demo_secret_and_pii.env",
+  "policy_version": "leaklens-policy-v1.0",
+  "rules_catalog": {
+    "R1": "Secrets cannot be shared to public destinations (Gitleaks detection)",
+    "R4": "Personal identifiable data (PII) shared externally requires partner agreement",
+    "R9": "High entropy credentials trigger immediate egress block"
+  },
+  "baseline": {
+    "destination": "Public GitHub repository",
+    "audience": "Anyone",
+    "access": "Download",
+    "contains_secret": true,
+    "contains_pii": true,
+    "secrets_count": 3,
+    "pii_count": 5,
+    "decision": "BLOCK",
+    "risk": 92
+  },
+  "audiences": [
+    "Anyone",
+    "External partner",
+    "All internal staff",
+    "Authorised team"
+  ],
+  "destination_groups": [
+    {
+      "group": "Public",
+      "destinations": [
+        "Public GitHub repository",
+        "Public link"
+      ]
+    },
+    {
+      "group": "External",
+      "destinations": [
+        "External email",
+        "Partner shared drive"
+      ]
+    },
+    {
+      "group": "Internal",
+      "destinations": [
+        "Internal team channel",
+        "Approved internal workspace"
+      ]
+    }
+  ],
+  "cells": [
+    { "destination": "Public GitHub repository", "audience": "Anyone", "decision": "BLOCK", "risk": 92, "rules": ["R1", "R4", "R9"], "explanation": "Egress blocked: unencrypted credentials and PII cannot be shared to a public repository." },
+    { "destination": "Public GitHub repository", "audience": "External partner", "decision": "BLOCK", "risk": 88, "rules": ["R1", "R4", "R9"], "explanation": "Egress blocked: public repository destinations violate secret perimeter policy regardless of partner status." },
+    { "destination": "Public GitHub repository", "audience": "All internal staff", "decision": "BLOCK", "risk": 84, "rules": ["R1", "R9"], "explanation": "Egress blocked: public repository hosting exposes repository credentials beyond internal perimeter." },
+    { "destination": "Public GitHub repository", "audience": "Authorised team", "decision": "BLOCK", "risk": 80, "rules": ["R1", "R9"], "explanation": "Egress blocked: credential distribution requires private approved internal storage." },
+
+    { "destination": "Public link", "audience": "Anyone", "decision": "BLOCK", "risk": 94, "rules": ["R1", "R4", "R9"], "explanation": "Egress blocked: public links allow unauthenticated access to detected secrets and PII." },
+    { "destination": "Public link", "audience": "External partner", "decision": "BLOCK", "risk": 88, "rules": ["R1", "R4", "R9"], "explanation": "Egress blocked: public link distribution provides no access control for sensitive tokens." },
+    { "destination": "Public link", "audience": "All internal staff", "decision": "BLOCK", "risk": 82, "rules": ["R1", "R9"], "explanation": "Egress blocked: unauthenticated link sharing violates secret management baseline." },
+    { "destination": "Public link", "audience": "Authorised team", "decision": "BLOCK", "risk": 78, "rules": ["R1", "R9"], "explanation": "Egress blocked: authorized team sharing must use authenticated internal workspace channels." },
+
+    { "destination": "External email", "audience": "Anyone", "decision": "BLOCK", "risk": 89, "rules": ["R1", "R4", "R9"], "explanation": "Egress blocked: external email broadcast of sensitive credentials violates egress policy." },
+    { "destination": "External email", "audience": "External partner", "decision": "REVIEW", "risk": 58, "rules": ["R4", "R9"], "explanation": "Review required: sending personal data via external email requires active data transfer agreement." },
+    { "destination": "External email", "audience": "All internal staff", "decision": "REVIEW", "risk": 52, "rules": ["R9"], "explanation": "Review required: unencrypted credentials sent via email require internal redaction review." },
+    { "destination": "External email", "audience": "Authorised team", "decision": "REVIEW", "risk": 44, "rules": ["R9"], "explanation": "Review required: high entropy token egress requires confirmation before dispatch." },
+
+    { "destination": "Partner shared drive", "audience": "Anyone", "decision": "BLOCK", "risk": 86, "rules": ["R1", "R4", "R9"], "explanation": "Egress blocked: partner drive shared with anyone lacks required access scoping." },
+    { "destination": "Partner shared drive", "audience": "External partner", "decision": "REVIEW", "risk": 56, "rules": ["R4", "R9"], "explanation": "Review required: partner storage of PII must comply with data sharing agreement." },
+    { "destination": "Partner shared drive", "audience": "All internal staff", "decision": "REVIEW", "risk": 48, "rules": ["R9"], "explanation": "Review required: credential presence in partner drive requires administrative sign-off." },
+    { "destination": "Partner shared drive", "audience": "Authorised team", "decision": "ALLOW", "risk": 22, "rules": [], "explanation": "Allowed: partner drive sharing with authorized project team complies with policy." },
+
+    { "destination": "Internal team channel", "audience": "Anyone", "decision": "BLOCK", "risk": 82, "rules": ["R1", "R9"], "explanation": "Egress blocked: broadcasting secrets to broad audience exceeds security scope." },
+    { "destination": "Internal team channel", "audience": "External partner", "decision": "REVIEW", "risk": 54, "rules": ["R4", "R9"], "explanation": "Review required: guest access in internal team channel requires PII masking." },
+    { "destination": "Internal team channel", "audience": "All internal staff", "decision": "REVIEW", "risk": 42, "rules": ["R1"], "explanation": "Review required: raw credentials in broad internal channel require secret rotation review." },
+    { "destination": "Internal team channel", "audience": "Authorised team", "decision": "ALLOW", "risk": 16, "rules": [], "explanation": "Allowed: internal team channel restricted to authorized team meets egress policy." },
+
+    { "destination": "Approved internal workspace", "audience": "Anyone", "decision": "BLOCK", "risk": 78, "rules": ["R1", "R9"], "explanation": "Egress blocked: workspace access cannot be open to unverified personnel." },
+    { "destination": "Approved internal workspace", "audience": "External partner", "decision": "REVIEW", "risk": 46, "rules": ["R9"], "explanation": "Review required: external partner access to approved workspace requires NDA clearance." },
+    { "destination": "Approved internal workspace", "audience": "All internal staff", "decision": "ALLOW", "risk": 18, "rules": [], "explanation": "Allowed: approved internal workspace with internal staff satisfies perimeter isolation." },
+    { "destination": "Approved internal workspace", "audience": "Authorised team", "decision": "ALLOW", "risk": 10, "rules": [], "explanation": "Allowed: approved workspace restricted to authorized team represents safest egress context." }
+  ]
+}

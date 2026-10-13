@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #F7F8FC;
+  color: #0F172A;
+  font-family: Inter, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-wash {
+  background: linear-gradient(180deg, #EEF2FF 0%, #F7F8FC 260px);
+}
+
+/* High-contrast accessible focus ring for interactive elements */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #4F46E5 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.25) !important;
+}
+
+/* Button micro-interactions: hover lift 1px, press scale 0.98 */
+@media (prefers-reduced-motion: no-preference) {
+  button:not(:disabled) {
+    transition: transform 120ms ease, box-shadow 120ms ease, background-color 150ms ease, color 150ms ease;
+  }
+  button:not(:disabled):hover {
+    transform: translateY(-1px);
+  }
+  button:not(:disabled):active {
+    transform: scale(0.98);
+  }
+}
+
+/* Respect prefers-reduced-motion: disable non-essential animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

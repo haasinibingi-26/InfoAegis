@@ -1,0 +1,97 @@
+// tailwind.config.js
+export default {
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        bg: '#F7F8FC',
+        surface: '#FFFFFF',
+        raised: '#F1F4FB',
+        border: '#E4E8F2',
+        ink: '#0F172A',
+        ink2: '#475569',
+        muted: '#64748B',
+        primary: {
+          DEFAULT: '#4F46E5',
+          hover: '#4338CA',
+          active: '#3730A3',
+          tint: '#EEF2FF',
+        },
+        teal: '#0891B2',
+        block: { DEFAULT: '#DC2626', tint: '#FEE2E2' },
+        review: { DEFAULT: '#D97706', tint: '#FEF3C7' },
+        allow: { DEFAULT: '#16A34A', tint: '#DCFCE7' },
+        secret: { DEFAULT: '#DB2777', tint: '#FCE7F3' },
+        pii: { DEFAULT: '#0284C7', tint: '#E0F2FE' },
+        code: '#F1F5F9',
+      },
+      fontSize: {
+        'display-title': ['28px', { lineHeight: '36px', letterSpacing: '-0.02em', fontWeight: '600' }],
+        'headline-section': ['18px', { lineHeight: '24px', letterSpacing: '-0.015em', fontWeight: '600' }],
+        'headline-subsection': ['15px', { lineHeight: '20px', letterSpacing: '-0.01em', fontWeight: '600' }],
+        'body-default': ['14px', { lineHeight: '20px', letterSpacing: '-0.005em', fontWeight: '400' }],
+        'body-medium': ['14px', { lineHeight: '20px', letterSpacing: '-0.005em', fontWeight: '500' }],
+        'body-sm': ['13px', { lineHeight: '18px', letterSpacing: '0em', fontWeight: '400' }],
+        caption: ['12px', { lineHeight: '16px', letterSpacing: '0.01em', fontWeight: '500' }],
+        'code-inline': ['13px', { lineHeight: '18px', letterSpacing: '-0.01em', fontWeight: '400' }],
+        'code-sm': ['12px', { lineHeight: '16px', letterSpacing: '-0.01em', fontWeight: '400' }],
+        'badge-label': ['11px', { lineHeight: '14px', letterSpacing: '0.02em', fontWeight: '600' }],
+      },
+      spacing: {
+        'space-xs': '0.25rem',
+        'space-sm': '0.5rem',
+        'space-md': '1rem',
+        'space-lg': '1.5rem',
+        'space-xl': '2rem',
+        'gutter-sm': '1rem',
+        gutter: '1.5rem',
+        'margin-mobile': '1rem',
+        margin: '2rem',
+      },
+      borderRadius: {
+        sm: '4px',
+        DEFAULT: '8px',
+        md: '8px',
+        lg: '8px',
+        xl: '16px',
+        full: '9999px',
+      },
+      boxShadow: {
+        card: '0 1px 2px rgba(15,23,42,0.06), 0 8px 24px rgba(15,23,42,0.05)',
+        'card-hover': '0 8px 24px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.04)',
+        popover: '0 12px 32px -4px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04)',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+      keyframes: {
+        shimmer: { '100%': { transform: 'translateX(100%)' } },
+        pulseGlow: {
+          '0%,100%': { boxShadow: '0 0 0 0 rgba(220,38,38,0)' },
+          '50%': { boxShadow: '0 0 24px 4px rgba(220,38,38,0.18)' },
+        },
+        pulseGlowReview: {
+          '0%,100%': { boxShadow: '0 0 0 0 rgba(217,119,6,0)' },
+          '50%': { boxShadow: '0 0 24px 4px rgba(217,119,6,0.18)' },
+        },
+        pulseGlowAllow: {
+          '0%,100%': { boxShadow: '0 0 0 0 rgba(22,163,74,0)' },
+          '50%': { boxShadow: '0 0 24px 4px rgba(22,163,74,0.18)' },
+        },
+        shakeOnce: {
+          '0%,100%': { transform: 'translateX(0)' },
+          '20%,60%': { transform: 'translateX(-4px)' },
+          '40%,80%': { transform: 'translateX(4px)' },
+        },
+      },
+      animation: {
+        shimmer: 'shimmer 1.6s infinite',
+        pulseGlow: 'pulseGlow 3s ease-in-out infinite',
+        pulseGlowReview: 'pulseGlowReview 3s ease-in-out infinite',
+        pulseGlowAllow: 'pulseGlowAllow 3s ease-in-out infinite',
+        shakeOnce: 'shakeOnce 0.4s ease-in-out 1',
+      },
+    },
+  },
+};

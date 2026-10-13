@@ -1,0 +1,58 @@
+{
+  "incidents": [
+    {
+      "id": "INC-20260101-0001",
+      "time": "2026-01-01 14:32:09 UTC",
+      "relative_time": "10m ago",
+      "file_name": "demo_secret_and_pii.env",
+      "file_size": "840 B",
+      "destination": "Public GitHub repository",
+      "audience": "Anyone",
+      "access": "Download",
+      "initial_decision": "BLOCK",
+      "final_decision": "REVIEW",
+      "initial_risk": 92,
+      "final_risk": 18,
+      "secrets_count": 3,
+      "pii_count": 5,
+      "receipt_id": "RCPT-0001",
+      "receipt_verified": true
+    },
+    {
+      "id": "INC-20260101-0002",
+      "time": "2026-01-01 13:58:20 UTC",
+      "relative_time": "44m ago",
+      "file_name": "customer_report.csv",
+      "file_size": "1.2 KB",
+      "destination": "External email",
+      "audience": "External partner",
+      "access": "View only",
+      "initial_decision": "REVIEW",
+      "final_decision": "ALLOW",
+      "initial_risk": 58,
+      "final_risk": 14,
+      "secrets_count": 0,
+      "pii_count": 4,
+      "receipt_id": "RCPT-0002",
+      "receipt_verified": true
+    },
+    {
+      "id": "INC-20260101-0003",
+      "time": "2026-01-01 12:14:41 UTC",
+      "relative_time": "2h ago",
+      "file_name": "clean_release_notes.txt",
+      "file_size": "2.4 KB",
+      "destination": "Approved internal workspace",
+      "audience": "All internal staff",
+      "access": "View only",
+      "initial_decision": "ALLOW",
+      "final_decision": "ALLOW",
+      "initial_risk": 8,
+      "final_risk": 8,
+      "secrets_count": 0,
+      "pii_count": 0,
+      "receipt_id": "RCPT-0003",
+      "receipt_verified": true
+    }
+  ]
+}

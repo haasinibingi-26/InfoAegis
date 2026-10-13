@@ -1,0 +1,147 @@
+{
+  "receipt_id": "RCPT-0001",
+  "incident_id": "INC-20260101-0001",
+  "timestamp": "2026-01-01 14:32:09 UTC",
+  "signer_key_id": "ed25519:9f4bc972e6128fa10c01e38e1",
+  "mode": "LOCAL FALLBACK",
+  "mode_label": "LOCAL FALLBACK (not CooL SDK)",
+  "digest_sha256": "4a2f8b9e11048b29f001ca2f784e1b827361a7a0b380f29c10e849d2a1b30f9c",
+  "checks": [
+    {
+      "id": "signature_valid",
+      "name": "Signature valid",
+      "status": "pass",
+      "badge": "RFC-8032 VERIFIED",
+      "detail": "Ed25519 signature verified with host public key (local fallback signer).",
+      "fail_detail": "Signature verification failed: Ed25519 signature does not match mutated canonical payload."
+    },
+    {
+      "id": "hash_matches",
+      "name": "Record hash matches",
+      "status": "pass",
+      "badge": "SHA-256 MATCH",
+      "detail": "SHA-256 digest of canonical JSON matches signed payload hash (4a2f8b...0f9c).",
+      "fail_detail": "Digest mismatch: computed 0x7c2e91... vs signed 0x4a2f8b..."
+    },
+    {
+      "id": "bound_to_incident",
+      "name": "Receipt bound to this incident",
+      "status": "pass",
+      "badge": "BOUND",
+      "detail": "Attested incident ID matches INC-20260101-0001 and input hash e3b0c4...b855.",
+      "fail_detail": "Incident binding compromised: payload final_decision and finding_counts were altered after signing."
+    },
+    {
+      "id": "inclusion_proof",
+      "name": "Inclusion proof",
+      "status": "na",
+      "badge": "Not provided by SDK",
+      "detail": "Not provided by SDK (running in local fallback mode without transparency log anchoring).",
+      "fail_detail": "Not provided by SDK (running in local fallback mode)."
+    }
+  ],
+  "tampered_checks": [
+    {
+      "id": "signature_valid",
+      "name": "Signature valid",
+      "status": "fail",
+      "badge": "SIGNATURE MISMATCH",
+      "detail": "Signature verification failed: Ed25519 signature does not match mutated canonical payload."
+    },
+    {
+      "id": "hash_matches",
+      "name": "Record hash matches",
+      "status": "fail",
+      "badge": "DIGEST MISMATCH",
+      "detail": "Digest mismatch: computed 0x7c2e91... vs signed 0x4a2f8b..."
+    },
+    {
+      "id": "bound_to_incident",
+      "name": "Receipt bound to this incident",
+      "status": "fail",
+      "badge": "BINDING FAILED",
+      "detail": "Incident binding compromised: payload final_decision and finding_counts were altered after signing."
+    },
+    {
+      "id": "inclusion_proof",
+      "name": "Inclusion proof",
+      "status": "na",
+      "badge": "Not provided by SDK",
+      "detail": "Not provided by SDK (running in local fallback mode without transparency log anchoring)."
+    }
+  ],
+  "signed_record": {
+    "receipt_id": "RCPT-0001",
+    "incident_id": "INC-20260101-0001",
+    "timestamp": "2026-01-01T14:32:09.142Z",
+    "signer_mode": "LOCAL_FALLBACK",
+    "signer_key_id": "ed25519:9f4bc972e6128fa10c01e38e1",
+    "detectors": [
+      { "name": "gitleaks", "version": "v8.18.2", "mode": "REAL" },
+      { "name": "presidio", "version": "v2.2.33", "mode": "REAL" },
+      { "name": "safepatch", "version": "v0.4.1", "mode": "REAL" }
+    ],
+    "policy_version": "leaklens-policy-v1.0",
+    "context": {
+      "destination": "Public GitHub repository",
+      "audience": "Anyone",
+      "access": "Download"
+    },
+    "initial_decision": "BLOCK",
+    "initial_risk": 92,
+    "final_decision": "REVIEW",
+    "final_risk": 18,
+    "finding_counts": {
+      "secrets": 3,
+      "pii": 5,
+      "total": 8
+    },
+    "fired_rules": ["R1", "R4", "R9"],
+    "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sanitised_sha256": "7b2ca801ef0494cc381a1d95392fe129884e902b489a691bc2e84128f844a2b1",
+    "redaction_verification": {
+      "targeted_removed": 8,
+      "targeted_total": 8,
+      "ranges_applied": 8,
+      "ranges_rejected": 0,
+      "verification_passed": true
+    }
+  },
+  "tampered_record": {
+    "receipt_id": "RCPT-0001",
+    "incident_id": "INC-20260101-0001",
+    "timestamp": "2026-01-01T14:32:09.142Z",
+    "signer_mode": "LOCAL_FALLBACK",
+    "signer_key_id": "ed25519:9f4bc972e6128fa10c01e38e1",
+    "detectors": [
+      { "name": "gitleaks", "version": "v8.18.2", "mode": "REAL" },
+      { "name": "presidio", "version": "v2.2.33", "mode": "REAL" },
+      { "name": "safepatch", "version": "v0.4.1", "mode": "REAL" }
+    ],
+    "policy_version": "leaklens-policy-v1.0",
+    "context": {
+      "destination": "Public GitHub repository",
+      "audience": "Anyone",
+      "access": "Download"
+    },
+    "initial_decision": "ALLOW",
+    "initial_risk": 4,
+    "final_decision": "ALLOW",
+    "final_risk": 4,
+    "finding_counts": {
+      "secrets": 0,
+      "pii": 0,
+      "total": 0
+    },
+    "fired_rules": [],
+    "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sanitised_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "redaction_verification": {
+      "targeted_removed": 8,
+      "targeted_total": 8,
+      "ranges_applied": 8,
+      "ranges_rejected": 0,
+      "verification_passed": true
+    }
+  }
+}

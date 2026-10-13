@@ -1,0 +1,56 @@
+{
+  "status": "operational",
+  "checked_at": "2026-01-01T14:35:00Z",
+  "components": [
+    {
+      "id": "gitleaks",
+      "name": "Gitleaks",
+      "role": "Finds secrets",
+      "mode": "REAL",
+      "version": "v8.18.2 (Official Binary)",
+      "last_self_test": "Self-test passed 3m ago",
+      "self_test_passed": true,
+      "self_test_detail": "Synthetic credential benchmark: 3/3 test vectors matched (42ms)"
+    },
+    {
+      "id": "presidio",
+      "name": "Presidio",
+      "role": "Finds personal data",
+      "mode": "REAL",
+      "version": "v2.2.33 (spaCy en_core_web_lg)",
+      "last_self_test": "Self-test passed 3m ago",
+      "self_test_passed": true,
+      "self_test_detail": "NER recognition check: SSN, Email, Phone, Person entities active (128ms)"
+    },
+    {
+      "id": "safepatch",
+      "name": "Rust SafePatch",
+      "role": "Redacts and verifies",
+      "mode": "REAL",
+      "version": "v0.4.1 (rustc 1.76 CLI)",
+      "last_self_test": "Self-test passed 5m ago",
+      "self_test_passed": true,
+      "self_test_detail": "Byte-range redaction & SHA-256 verification passed (8/8 spans)"
+    },
+    {
+      "id": "cool",
+      "name": "CooL SDK",
+      "role": "Signs evidence",
+      "mode": "FALLBACK",
+      "version": "v1.0.0-fallback (Local Ed25519 Signer)",
+      "last_self_test": "Self-test passed 12m ago",
+      "self_test_passed": true,
+      "self_test_detail": "Local Ed25519 fallback signer active (hardware enclave not attached)"
+    },
+    {
+      "id": "node",
+      "name": "Node",
+      "role": "Runs the server",
+      "mode": "REAL",
+      "version": "v20.11.1 LTS (V8 12.0.267.8)",
+      "last_self_test": "Self-test passed 1m ago",
+      "self_test_passed": true,
+      "self_test_detail": "API router & policy evaluator healthy (event loop lag 0.4ms)"
+    }
+  ]
+}
